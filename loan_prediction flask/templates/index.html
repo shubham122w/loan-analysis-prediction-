@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Approval Prediction</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <h2>Loan Approval Prediction</h2>
+    <form action="/predict" method="post">
+        Income:
+        <input type="number" name="income" required>
+
+        Credit Score:
+        <input type="number" name="credit_score" required>
+
+        Employment Status:
+        <select name="employment_status">
+            <option value="0">Unemployed</option>
+            <option value="1">Employed</option>
+            <option value="2">Self-employed</option>
+        </select>
+
+        Loan Amount:
+        <input type="number" name="loan_amount" required>
+
+        Loan Term:
+        <select name="loan_term">
+            <option value="1">Short-term</option>
+            <option value="2">Long-term</option>
+        </select>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
